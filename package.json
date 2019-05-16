@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "next"
+    "dev": "next",
+    "now-build": "next build"
   },
   "dependencies": {
     "@types/react": "^16.8.17",
