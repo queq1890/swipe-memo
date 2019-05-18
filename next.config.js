@@ -1,15 +1,23 @@
-const withTypeScript = require('@zeit/next-typescript');
-const withOffline = require('next-offline')
+function moduleExists (name) {
+  try {
+    return require.resolve(name)
+  } catch (error) {
+    return false
+  }
+}
 
+const nextConfig = {
+  target: 'serverless'
+}
 
-// module.exports = (_, { defaultConfig }) => {
-//   const config = {
-//     ...defaultConfig,
-//     target: 'serverless',
-//   };
-//   return withOffline(withTypeScript(config));
-// };
+const withTypeScript = moduleExists('@zeit/next-typescript')
+  ? require('@zeit/next-typescript')
+  : {}
 
-module.exports = withOffline(withTypeScript({
-  target: 'serverless', 
-}));
+const withOffline = moduleExists('next-offline')
+  ? require('next-offline')
+  : {}
+
+  module.exports = moduleExists('next-offline') && moduleExists('@zeit/next-typescript')
+    ? withTypeScript(withOffline(nextConfig))
+    : nextConfig
