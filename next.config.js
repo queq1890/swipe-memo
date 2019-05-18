@@ -21,3 +21,4 @@ const withOffline = moduleExists('next-offline')
   module.exports = moduleExists('next-offline') && moduleExists('@zeit/next-typescript')
     ? withTypeScript(withOffline(nextConfig))
     : nextConfig
+    
