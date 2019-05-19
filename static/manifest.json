@@ -1,7 +1,9 @@
 {
-  "name": "Swipe",
-  "short_name": "Swipe Memo",
-  "theme_color": "#3f51b5",
-  "background_color": "#ffea00",
-  "display": "standalone"
+  "name": "Swipe Memo",
+  "short_name": "Swipe",
+  "theme_color": "#2196f3",
+  "background_color": "#2196f3",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/"
 }
