@@ -1,15 +1,11 @@
+const nextTypeScript = require('@zeit/next-typescript');
+const nextOffline = require('next-offline');
+const withPlugins = require('next-compose-plugins');
 
-const nextTypeScript = require('@zeit/next-typescript')
-const nextOffline = require('next-offline')
-const withPlugins = require('next-compose-plugins')
-
-const plugins = [
-  [nextTypeScript], 
-  [nextOffline]
-]
+const plugins = [[nextTypeScript], [nextOffline]];
 
 const nextConfig = {
-  target: 'serverless', 
+  target: 'serverless',
   workboxOpts: {
     swDest: 'static/service-worker.js',
     runtimeCaching: [
@@ -30,6 +26,6 @@ const nextConfig = {
       },
     ],
   },
-}
+};
 
-module.exports = withPlugins(plugins, nextConfig)
+module.exports = withPlugins(plugins, nextConfig);
